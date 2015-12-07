@@ -1,0 +1,185 @@
+1.要使用AR模型，必须application/config/database.php中 $active_record = TRUE;
+ 这时候system/database 中DB_active_rec.php 中class CI_DB_active_record extends CI_DB_driver
+
+2.
+//查询
+public function index()
+	{
+		$res = $this->db->get('user');
+		foreach ($res->result() as $item) {
+			echo $item->name;
+			echo '<br>';
+		}
+		//$this->load->view('welcome_message');
+	}
+
+3.在配置文件中，配置表前缀后，会自动添加
+  $res = $this->db->get("user");
+4.//插入
+ 		$data = array(
+				'name'=>'marry',
+				'password'=>md5('marry'),
+				'email'=>'hello@gmail.com'
+			);
+		$this->db->insert('user',$data);
+
+5.//修改
+ $data = array(
+				'name'=>'job',
+				'password'=>md5('jerry'),
+				'email'=>'jerry@gmail.com'
+			);
+		// $this->db->insert('user',$data);
+		$bool = $this->db->update('user',$data,array('id'=>13));
+		var_dump($bool);
+//删除
+$bool = $this->db->delete('user',array('id'=>13));
+
+6.CI中的MVC 访问url使用的是 pathinfo
+	入口文件.php/控制器/动作
+	所有的控制器，直接或者间接继承自CI_Controller
+控制器汇总，对动作要求 1.public  2 不能以_开头
+
+7. 在控制器中如果加载视图，直接写视图名字，不写扩展名，如果有子目录，则写上目录名   $this->load->view("视图") 可以多次调用 $this->load->view();
+
+8.超级对象
+  当前的控制器对象，提供了很多属性： 装载器的实例 system/core/Loader.php
+装载器提供方法：
+view() 装在视图
+vars() 分配变量到视图
+database()  装载数据库操作对象
+model() 装载模型对象
+helper()
+
+9.this->uri
+    是CI_URI类的实例，system/core/URI.php
+CI_URI类提供方法： segment(n)用于获取url中的第n个参数值
+传统的： 入口文件.php/控制器/动作/参数1/值1/参数2/值2
+echo  $this->segment(3) 
+
+10. 
+  class User extends CI_Controller{
+	public function showUser(){
+
+		$this->load->database();
+		$sql = 'select * from blog_user';
+		$res=$this->db->query($sql);	
+		$users = $res->result();
+		$data['user_list']=$users;
+		$this->load->view('user/showUsers',$data); //传值给view
+	}
+   }
+11. 参数绑定
+    $sql = "select * from blog_user where name=?";
+    $this->db->query($sql,$name);
+12. 表前缀
+	$db['default']['dbprefix'] = 'blog_';
+	$db['default']['swap_pre'] = 'blog_';
+好处是以后项目数据表前缀发生变化，只需要修改前缀即可
+
+13.db的自动加载
+//application/config/autoload.php
+//$autoload['libraries'] = array('database');
+//$this->load->database();
+
+14. if($bool){
+		echo $this->db->affected_rows(); //受影响行数
+		echo $this->db->insert_id(); // 受影响的id
+	}
+
+15.select id,name from tablename where id>=3 order by id desc limit 2,3
+ $res=$this->db->select('id','name')
+	->from('user')
+	->where('id >=',3)
+	->limit(3,2) //跳过2条，取出3条数据
+	->order by('id desc')
+	->get();
+echo $this->db->last_query();
+
+16. AR中的链式操作
+	$res = $this->db->where('name','marry')->get("user");
+	$res = $this->db-where('name !=','marry')->get('user');
+	$res = $this->db->where(array('name'=>'marry))->get('user');
+	$res = $this->db->where(array('name'=>'marry','id '=>2))->get('user');
+
+echo $this->db->last_query();
+复杂的查询，用$this->db->query($sql,$data); 使用问好绑定参数
+
+17.扩展CI控制器
+application/core/MY_Controller.php 扩展的CI控制器的前缀MY_在config/config.php里面可以改
+$config['subclass_prefix'] = 'MY_';
+
+18. 模型命名  User_model  
+19.在model中可以使用所有超级对象的属性方法
+20. model加载后也会放到超级对象中去
+21.eg mvc_demo
+model:
+	<?php
+	class User_model extends CI_Model{
+		public function getAll(){
+			$res = $this->db->get('user');
+			return $res->result();
+		}
+	}
+?>
+
+controller:
+<?php
+	class User extends CI_Controller{
+		public function index(){
+			$this->load->model('User_model');
+			$list = $this->User_model->getAll();
+			$this->load->view('index',array(
+					'list'=>$list
+				));
+		}
+	}
+?>
+
+view:
+	<html>
+	<body>
+		<?php
+			var_dump($list);
+		?>
+	</body>
+</html>
+
+
+22.模型加载好自动成为超级对象的属性，在任何地方都可以访问。最好一张表对应一个模型。
+23.模型加载另一种方法：
+	$this->load->model('User_model','user'); //起个别名
+	$list=$this->user->getAll();
+24.模型 继承自CI_Model,在模型中可以使用超级对象的属性
+文件名全部小写，类名首字母大写。使用_model作为后缀防止冲突
+
+25. helper("url")中的site_url()
+	site_url('控制器/方法')
+$this->load->helper('url') $this->load->view('user/add')
+可以根据需要自动加载 /config/config.php 
+ <form action="<?php echo site_url('user/insert');?>" method="post">
+26.<img src="<?php echo base_url();?>uploads/im.jpg" alt="" width="300px">
+
+27.分页
+public function test(){
+			$this->load->library('pagination');
+			$this->load->helper('url');
+			$page_size =10;
+			$config['base_url']=site_url('user/test');
+			$config['total_rows']=100;
+			$config['per_page']=$page_size;
+			$config['first_link']='首页';
+			$config['prev_link'] = 'yu';
+			$config['next_link']='下一页';
+			$config['uri_segment']=3;
+			//$config['num_links'] = 5;
+			$this->pagination->initialize($config);
+			$offset = intval($this->uri->segment(3));
+			//$sql = "select * from blog_user limit $offset,$page_size";
+			$data['links']=$this->pagination->create_links();
+			$this->load->view('test_view',$data);
+		}
+
+28. 使用简体中文语言包zh-cn，把语言包放到application/language/ 下，并设置$config['language'] = 'zh-cn'
+
+29.

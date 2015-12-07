@@ -1,0 +1,242 @@
+html_note
+<img src="./dog.jpg"  style="border:1px solid red" alt="this is a dog">
+
+<a href="http://www.baidu.com" target="_self,_blank,top,_parent">link</a>
+
+<table width="400px" border=1px color="red">
+
+<td colspan="3">hello</td> 左右三列合并
+
+<td rowspan="2">hello</td> 上下两行合并
+
+<align="center" valign="center">
+
+cellspacing 格子之间距离
+cellpadding 字与格子的内边距
+
+把一个网页嵌入另一个网页
+<iframe src="http://www.baidu.com" width="500px" height="400px"></iframe> 
+
+嵌入多媒体
+<embed>
+ 
+css的filter
+<style type="text/css">
+	a:link img{
+		filter:gray;
+	}
+	a:hover img{
+		filter:"";
+	}
+</style>
+
+类选择器，又叫class选择器
+id选择器
+html元素选择器
+通配符选择器
+
+Id选择器> class选择器> html选择器> 通配符选则器
+
+当两个类选择器发生冲突了，则以写在css文件中的后面的那个类选择器为准 
+
+document中三个主要对象 ：links,anchor,form
+onFocus： 当 Text 获得焦点时， 产生该事件。
+OnBlur：从元素失去焦点时， 产生该事件。
+Onselect： 当文字被加亮显示后， 产生该文件。
+onchange： 当 Text 元素值改变时， 产生该文件
+
+select
+name:设定提交信息时的信息名称， 对应文档 select 中的 name。
+Length:对应文档 select 中的 length
+options:组成多个选项的数组
+selectIndex;该下标指明一个选项
+select 在中每一选项都含有以下属性：
+Text:选项对应的文字
+selected:指明当前选项是否被选中
+Index:指明当前选项的位置
+defaultselected:默认选项
+　　事件：
+OnBlur： 当 select 选项失去焦点时， 产生该文件。
+onFocas:当 select 获得焦点时， 产生该文件。
+Onchange:选项状态改变后， 产生该事件。
+
+try。。。catch。。。中捕获异常  err.message
+eg: txt="错误"+err.message alert(txt);
+
+段落首行缩进  P{text-indent:1cm}
+
+a:link  正常浏览的样式
+a:visited  被单击过的超链接的样式
+a:hover   鼠标指针经过超链接的样式
+a:active  单击时的样式
+
+cursor:point cursor属性设置鼠标指针  
+
+var d = document.getElementById("will")
+var d = document.getElementsByTagName("td")[0].firstChild;
+
+Zendcoding(emmet)快速编写html,css代码
+1 输入内容，然后按ctrl+shift+G div#header>ul#navigation>li.item$*>a>span:
+2.div#nav>ul.hello>li.item*3>a>span 然后tab
+3.div.hello>h1+p
+4 !然后ctrl+e 生成html规范文档 (html:5 )
+5.script:src , 会被扩展为<script src=""></script>
+6. 输入 img , 会被扩展为<img src="" alt=""/>
+7. 输入 embed , 会被扩展为<embed src="" type=""/>
+8.输入 param , 会被扩展为<param name="" value=""/>
+9. 输入 area , 会被扩展为<area shape="" coords="" href="" alt=""/>
+10. 输入 area:d , 会被扩展为<area shape="default" href="" alt=""/>
+11.  area:c 会被扩展为<area shape="circle" coords="" href="" alt=""/>
+12. 输入 area:r 会被扩展为<area shape="rect" coords="" href="" alt=""/>
+13. 输入 form:get , 会被扩展为<form action="" method="get"></form>
+14. 输入 form:post , 会被扩展为<form action="" method="post"></form>
+15. 输入 input:hidden , 会被扩展为 <input name="" type="hidden"/>
+16. 输入 select:disabled , 会被扩展为<select name="" id="" disabled=""></select>
+
+17 父节点   ^符号
+18. $("#div1").html+"xxx"
+19. 北京交通大学pt   anny2012 king89757
+var arr = new Array("tom","bob","mary")或者
+arr[0]="tom" arr[1]="bob"
+alert(arr.toString())
+
+附带测试的开发工具 TestSwarm
+半自动化开发工具 Minimee
+轻松建立JS库的开发工具  JavaScript Boilerplate
+调试工具 Drosera Firebug Venkman 
+
+CSS选择器 标记选择器 类别选择器 ID选择器
+css属性： word-spacing direction background-repeat:no-repeat or repeat-x or repeat-y
+css控制鼠标指针： cursor:pointer 
+JSON 是 javascript object Notation 缩写
+CSS盒装模型由内到外 padding border margin
+盒子定位：position四种属性
+#box{
+	 	position: absolute;
+	 	left: 100px;
+	 	top: 100px;
+	 }
+使用CSS sprites技术加速图片展示性能
+就是在CSS中使用图片url的时候，指定使用url图片的那一部分，这样把页面中所用到的多个图片整合在一张图里，每次使用给不同部分，减少了页面请求书，提高了网页性能。包括google在内的很多网站都大量使用了sprites技术。
+DOM document object model 缩写，即文档对象模型，利用DOM可以方便的操控HTML文档或XML文档
+
+DOM模型中的节点 
+元素节点 var d = document.getElementById("will")
+文本节点 var d = document.getElementByTagName("td")[0].firstChild;
+属性节点 var d = document.getElementById("will").getAttributeNode("name");
+通过className添加CSS eg: var d = document.getElementById("hello") d.className="xx"
+git@git.oschina.net:yuchuan512/yu.git
+
+JavaScript 错误处理
+1）用alert()和document.write() 方法监视变量
+2）用onerror事件处理错误
+JavaScript中产生异常时就会在window对象上触发onerror事件。如果要利用onerror事件，就必须创建一个处理错误的函数
+window.onerror = function(sMessage,sUrl,sLine){
+	alert("出错了！\n"+sMessage+"\nUrl"+sUrl+"/出错行"+sLine);
+}
+3)使用try...catch语句找到错误
+try{
+	document.write(str)
+}catch{
+	var myError = ""; 
+	for(var i in e){
+		myError+=i+":"+e[i]+"\n";
+	}
+}
+
+使用Ajax时IE缓存问题的解决办法
+ 在XMLHttpRequest发送请求之前加上 
+XMLHttpRequest.setRequestHeader("If-Modified-Since","0");
+XMLHttpRequest.send(null);
+
+jQuery选择元素的例子
+$("#showDiv") 
+$("oneClass")
+$("p:odd") $("p:even") 选择奇偶行中<p>标记
+$("td:nth-child(1)") 选择表格的第一个单元格
+$("div>d") 选择<div>下的所有子元素d,但不包括子孙元素
+$("a[href$=pdf]")  选择所有超链接属性为"pdf" 的href
+$("div:has(div)")  选取至少包括至少一个字<div>的<div>元素
+
+页面完全加载后调用 $(document).ready(function()
+$.fn 是自定义扩展jQuery的方法
+$.fn.extend(object); 
+
+$("ul.open")
+childen("li")
+addClass("open")
+end()  回到上一次选择找到的元素
+find("a") 在上一次的结果中找出所有的<a>
+
+each方法遍历元素
+$(function(){
+		$("input:hidden").each(function(i,val){
+			alert(val.name);
+			alert(val.value)
+		});
+	});
+
+attr()方法获取属性值
+ alert($("ul li:eq(1)").attr("title"))
+ 移除属性 $("ul li:eq(1)").removeAttr("title")
+
+改变元素样式
+$("button").click(function(){
+			$("p").css("color","red");
+		});
+
+添加、删除CSS
+$("p:first").addClass("one")
+切换css $("p").toggleClass("one");
+
+事件绑定就是将页面的元素类型与其在收到该事件之后期望进行的操作联系到一起。
+
+$("p").slideToggle(); p元素上下滑动隐藏或显示
+jQuey的URL操作，$.param(object)方法将比哦啊氮元素或者对象序列化
+数组或者jQuery对象会按照name,value进行序列化
+普通对象会按照key,value序列化
+var params ={width:120,height:1050};
+		var str=jQuery.param(params);
+		$("#results").text(str);
+
+jQuery功能函数
+$.merge()
+$.trim()
+$.isArray()
+$.each()方法遍历
+eg:
+var aArray=["one","two","three"];
+$.each(aArray,function(iNum,value){
+	document.write("xuhao"+iNum+"zhi"+value)
+});
+
+$.grep()过滤数据
+eg:
+var Array =[1,2,3,4,5,6,7,7];
+var Result = $.grep(Array,function(value){
+	return (value>5);
+});
+$.map()实现数组元素的转化
+eg:
+var arr1 = ["one","two","three"];
+arr2 = $.map(arr1,function(value,index){
+	return (value.toUpperCase()+(index+1));
+});
+$("p:eq(0)").text("yuanshizhi:"+arr1.join())
+$("p:eq(1)").text("xianzai:"+arr2.join())
+
+$.inArray()返回字符串在数组中的位置，不存在返回-1
+var add1 = $.inArray("one",arr1);
+
+$.getScript()获取外部函数，加载外部js
+Ajax采用异步编程模型，在被调用函数返回结果前，程序可继续执行，当被调用函数执行完毕后，会产生异步时间，通知主程序进行相关处理。
+
+jQuery中封装了JavaScript的Ajax调用
+jQuery中load方法，即使刷新
+jQuery中的getJSON方法
+eg:
+$.getJSON("yuchuan.json",function(result){
+				$("#div1").append("when"+result.when+"<br>");
+			});
+
+

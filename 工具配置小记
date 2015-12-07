@@ -1,0 +1,35 @@
+### mysql绿色版：
+以管理员身份进入D:\green\mysql64\bin 目录，执行 mysqld   - -install ，安装成功； mysql -u root -p  密码默认为root
+### sublime text2配置
+ctrl+shift+p  命令面板 --》 css，切换为css文件
+ctrl+shift+p 命令面板  reindent lines  修复缩进
+绑定快捷键  user--> shift+tab 修复缩进
+ctrl+shift+f  格式化代码
+命令面板--》keybinding 
+找寻精确的命令名： ctrl+ ` 反引号 ，输入 sublime.log_commands(True)
+然后执行相应的命令，可以得知精确命令名称n
+user里面若跟default一样，怎会覆盖default的设置
+多点编辑，点击之后按着ctrl
+自动补齐 修改auto_complete 快捷键 alt+J
+snippet 代码段
+keymap:
+[
+{ "keys": ["ctrl+shift+f"], "command": "reindent","args":{"single_line":false}},
+{ "keys": ["ctrl+b"], "command": "toggle_side_bar" },
+{ "keys": ["alt+j"], "command": "auto_complete" },
+]
+setting:
+{
+"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+"font_size": 16,
+"ignored_packages":
+[
+"Markdown",
+"Vintage",
+"SnippetCaller"
+],
+"line_padding_bottom": 3,
+"line_padding_top": 3
+}
+
+sublime text3 的临时数据 C:\Users\yuchuan\AppData\Roaming\Sublime Text 3

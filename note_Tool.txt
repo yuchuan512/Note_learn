@@ -1,0 +1,21 @@
+note_Tool
+sublime插件
+** SublimeREPL
+安装之后，配置 Settings-User,如下，最后一个参数填上python的安装路径。
+{
+"default_extend_env": {"PATH": "{PATH};C:\\Python27"}
+}
+添加 key Bindings-User,绑定到F5快捷键执行运行操作。
+    {"keys":["f5"],"caption": "SublimeREPL: Python - RUN current file",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_python_run",
+            "file": "config/Python/Main.sublime-menu"
+        }
+    }
+**AutoPep8 python规范化
+**DocBlockr doc风格代码注释
+**SublimeCodeIntel 自动补全
+**SublimeLinter 代码语法错误提示
+**SublimeAStyleFormatter C/C++/Java 语法风格
+**All Autocomplete 自动扩展到当前所有打开的文件
