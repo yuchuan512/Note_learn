@@ -1,5 +1,4 @@
-note_Tool
-sublime插件
+﻿sublime插件
 ** SublimeREPL
 安装之后，配置 Settings-User,如下，最后一个参数填上python的安装路径。
 {
