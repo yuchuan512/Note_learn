@@ -1,0 +1,4 @@
+HTML5
+<input type="text" name="uid" class="user_input" required autocomplete="true" placeholder="please input" 
+pattern="[a-zA-Z][4,10]">
+

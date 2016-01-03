@@ -1,0 +1,197 @@
+python 发送邮件  www.jb51.net/article/49219.htm
+blog.chinaunix.net/uid-199788-id-99454.html
+
+/usr/sbin/logrotate /etc/logrotate.conf > /dev/null 2>&1
+->python file -> FtpDownloader ->
+System 肯定是一个类，而Out是一个静态属性，println()是Out对象所提供的一个方法。
+System类中定义了如下的构造方法： public static void gc()  等同于调用了Runtime类中提供的gc方法
+收尾工作依靠覆写Object 类中的以下方法 protected void finalize() throws throwable
+Person per = new Person()  per=null; Thread.sleep(2000); System.gc();
+Java中为了解决这种大数的操作，提供了两个类： BigInteger  BigDecimal
+System.out.println(New SimpleDateFormat("yyyy/mm/dd").format(new Date())); -> 2015/06/08
+String str = "2015-01-15 12:30:00"; SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Local.CHINA);
+Arrays类是一个数组的操作类
+比较器 Person implements Comparable<Person>   Arrays.sort(per);
+新建比较器类  PersonComparator implements Comparator<person>
+两种比较接口的区别 Comparable属于定义类的时候调用，而Comparator属于挽救的比较器
+Pattern没有构造方法，构造方法被私有化了。找static方法 -》 public static Pattern compile(String regex)
+eg: Pattern pat = Pattern.compile("\\d+"); if(pat.matches(str) != null)
+反射：
+System.out.println(per.getClass().getName())
+Class<?> cls = Person.class; cls.getName()
+Class cc = Class.forName("zycTest.Person") 传递完整类名    cc.getName();
+在工厂设计模式之中，应用反射的最大好处是，即使在增加了新的子类，工厂也可以不用做任何的修改。
+Fruit f = Factory.getInstance("org.lxh.api.reflectdemo.classdemo.Apple")
+public static Fruit getInstance(String className) -> f=(Fruit)Class.forName(className).newInstance();
+使用短路与 &&； 非短路与 &
+编写Manifest.mf
+Manifest-Version: 1.0
+Main-Class: com.hello.Test
+git add file ; git add . 添加所有文件
+listFiles() 方法输出的时候可以输出一个完整的路径，而且返回的是 File 类的对象，可以进行更多的操作 。
+String[] list = file.list()  File[] filelist = file.listFiles();  ====
+OutputStream是抽象类，使用子类实例化：  OutputStream out = new FileOutputStream(file); byte[] data = sss.getBytes();out.write(data);
+OutputStream out = new FileOutputStream(file,true)  是否追加
+public abstract int read()  throws IOException(读取一个字节)  public int read(byte[] b) throws IOException
+OutputStream 类及时最后没有关闭内容也可以输出，但如果是writer的话，不关闭的话最后一条内容不会输出，因为所有的内容都是保存在缓冲区之后，
+每当调用了close()方法就意味着清空缓冲区了
+java.lang 基础的开发包，包含了一些常用类， String 、 Integer、Exception、Object;
+如果一个对象没有被实例化而直接使用的话，抛出 NullPointerException
+匿名对象没有对应的栈内存所指向，所以使用一次之后就等待被垃圾回收了 。
+**字符串与字符数组
+char[] toCharArray()    char charAt(int index)  eg: char[] st = ss.toCharArray();
+eg: String ss2 = new String(st,2,1) //String(char value[] ,int offset,int count)
+数组.length;  str.length(); 取长度
+**字符串与字节数组
+public String(byte[] bytes)    public String(byte[] byte)    public byte[] getBytes()
+byte[] b = ss.getBytes();   System.out.println(new String(b));  System.out.println(new String(b,2,5))
+字符串截取  substring(int beginIndex)  -> substring(int beginIndex,int endIndex);
+字符串包含 ： ss.contains("hello")     ss.indexOf("llo");
+-> replaceAll(String regex,String replacement)
+boolean startWith(String prefix)    boolean endsWith(String suffix)
+使用static 声明的方法，不能访问非static的操作(属性或方法)
+匿名内部类，在抽象类和接口的基础上发展起来的。
+assert x> 0; 需要eclipse开启 jvm -ea  选项
+public final Class StringBuffer extends Object implements Serializable,CharSequence
+每个方法返回类型都是StringBuffer   可以采用代码链的形式  StringBuffer.append().append().
+StringBuffer 虽然与String都是属于 CharSequence 的子类，但这两个对象不能直接转换，将StringBuffer转换为String，需要toString()
+reverse()  public StringBuffer replace(int start,int end,String str)  public StringBuffer insert(int offset,char c)
+要是发现没有构造方法，则构造方法一定被私有化了，属于单利设计，类的内部static方法，取得本类的实例。
+public Process exec(String command) throws IOException
+Runtime run = Runtime.getRuntime(); Process proc = run.exec("notepad.exe"); Thread.sleep(1000); proc.destroy();
+private static void list(File file){
+	if(file.isDirectory()){
+		File[] filelist = file.listFiles();
+		if(filelist!=null){
+			for(int j = 0; j < fileList.length;j++)
+				list(fileList[j]);
+		}
+	}
+	System.out.println(file);
+}   //递归列出当前目录的文件
+
+InputStream inst = new FileInputStream(file);
+	byte[] data = new byte[1024];
+	int len = 0,tmep;
+	while((temp=inst.read())!=-1){
+		data[len++] = (byte)temp;
+	}
+System.out.println("content is:" + new String(data,0,len))
+字符输出流  Writer out = new FileWriter(file);  out.write("hello")
+字符输入流  Reader read = new FileReader(file); char[] data = new char[1024]; int len = read.read(data);  String(data,0,len);
+OutputStream 中只能操作字节数据，所以其他的数据类型很难操作，为解决这种问题增加了两个类： PrintSteam   PrintWriter
+public PrintSteam(OutputStream out)   PrintSteam 是 OutputStream 的子类，构造需要一个out对象
+PrintStream out = new PrintSteam(new FileOutputStream(new File("D:"+File.separator+"test.txt")));
+out.println(1+"+"+1); //写入文件
+eg: out.printf("姓名：%s,年龄：%d,成绩%5.2f",name,age,score);
+System.in是字节流，BufferedReader是字符流，需要将一个字节流编程字符流，在java中提供了以下的两个转换类：
+将输入的字节流变为字符流： InputStreamReader   --- 将输出的字符流变为字节流  OutputStreamWriter
+BufferedReader buf = new BufferedReader(new InputStreamReader(System.in)); String info = buf.readLine();
+所谓的对象序列化就是将一个在内存中保存的对象变成一个二进制的数据流进行传输，但并不是所有类的对象都可以进行序列化的操作
+如果一个对象需要被序列化，则对象所在的类必须实现Serializable接口，但是此接口中没有任何的方法定义，所以此接口和Cloneable接口一样
+都是作为标识接口出现。
+public Scanner(InputStream source) Scanner scan = new Scanner(new FileInputStream(new File("D:"+File.separator+"test.txt ")))
+如果有某个属性不希望被序列化，可以使用 transient 关键字
+private transient String name;
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("D:"+File.separator+"person.ini")))
+oos.writeObject(per);
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("D:"+File.separator+"person.ini")))
+Object obj = ois.readObject();
+组序列化和反序列化
+ser(new Person[]{new Person("zhagn",20),new Person("lisi",29),new Person("wang",22)});
+Person[] per = (Person[])dser();
+fun(Point<? extends Number> po) 泛型上限    -- fun(Point<? super String> po) 泛型下限
+泛型接口  public interface Demo<T> { public void print(T Param) }
+public class DemoImpl<T> implements Demo<T> 实现泛型接口
+接口没有任何操作代码，此种接口在设计上称为标识接口，标识一种能力
+定义Person类，Person 类中的信息只能由Info的子类决定，所以此时指定了上限。
+class Person<T extends Info>
+要想启动一个县城肯定是Thread 类中的start() 方法完成，观察Thread类中的构造方法。
+public Thread(Runnable target)
+1.MyThread extends Thread   MyThread mt1 = new MyThread("threadA")  mt1.start();
+2.MyThread implements Runnable    MyThread mt2 = new MyThread("threadB")   new Thread(mt2).start();
+一个JVM启动的时候至少启动两个线程   main GC
+public static final int MAX_PRIORITY     public static final int MIN_PRIORITY
+javascript； -》 regexpal.com
+内部类可以被static修饰，修饰之后的类称为外部类，钥匙在类外部进行实例化，使用外部类.内部类
+如果没有被修饰，需要先实例化外部类对象，在实例化内部类对象，可以在一个方法中定义一个内部类，这个内部类可以直接访问外部类中的私有操作
+使用final关键字定义的类不能有子类，使用final声明的方法不能被子类所覆写  使用final声明的变量为常量
+抽象类可以有构造方法
+抽象类和普通类相比，只是增加了抽象 abstract class 的声明和增加了抽象方法而已。
+接口必须有子类，子类（如果不是抽象类） 必须覆写接口中的全部抽象方法。
+接口不能直接进行对象的实例化操作。
+对于接口而言本身还有一个很大的特点：一个接口可以同时通过extends关键字继承多个接口
+因为接口中的全部组成都是抽象方法和全局常量，所以以下两种形式等价
+interface Demo{
+	public static final String INFO="Helloworld";
+	public abstract void print();
+}
+interface Demo{
+	String INFO="hello";
+	void print();
+}
+所谓的向上转型，实际上就是一个子类变为父类接受，但是调用的方法肯定是被子类所覆写过的操作。
+接口主要有以下三大使用：
+1.指定标准
+2.表示能力
+3.将远程方法的操作视图暴露给客户端。
+
+interface USB{
+	pulbic void use();
+}
+class Computer{
+	public static void plugin(USB usb){
+		usb.use();
+	}
+}
+public class Flash implements USB{
+	@Override
+	public void use(){
+		System.out.println("user USB...");
+	}
+}
+
+dom4j读写xml   dom4j-1.6.jar  && jaxen-1.1.4.jar
+SAXReader saxReader = new SAXReader();
+Document docu = saxReader.read(new File(VersionInfoCfg.DATAIMPORT_CFG_FILE));
+Element MainVersion = (Element)docu.selectObject(VersionInfoCfg.XPATH_MAINVERSION);
+System.out.println("MainVersion "+MainVersion.getStringValue());
+public static final String DATAIMPORT_CFG_FILE="test.xml";
+public static final String   XPATH_MAINVERSION="/VersionInfo/MainVersion";
+public static final String   XPATH_NAME="/VersionInfo/Name";
+private String ConvertJson(){
+	VersionInfoParam sVersionInfo = new VersionInfoParam();
+	JSONArray array = new JSONArray();
+	JSONObject jsonObj = new JSONObject();
+	ReadConfig.ReadMonitorCfg.getInstance().readMonitorCfg(sVersionInfo);
+	jsonObj.put("MainVersion",sVersionInfo.getMainVersionInfo());
+	jsonObj.put("Name",sVersionInfo.getMainName());
+	jsonObj.put("LicenseVersion",sVersionInfo.getLicenseInfo())
+	array.add(jsonObj);
+	return array.toString();
+}
+
+slf4j  static Logger logger = LoggerFactory.getLogger(ReadMonitorcfg.class)  //facade
+log4j  static Logger logger = Logger.getLogger(SAXTest.class)
+
+public static ReadMonitorCfg getInstance(){
+	if(readMonitor==null)
+		readMonitor = new ReadMonitorcfg();
+	return readMonitor;
+}
+public void readMonitorCfg(VersionInfoParam tDatapara){
+	Element MainVersion = (Element)document.selectObject(VersionConstDefine.XPATH_MAINVERSION);
+	tDatapara.setMainVersionInfo(MainVersion.getStringValue());
+}
+JSON-lib包是一个beans,collections,maps，java array 和 xml 和json 相互转换的包：引入 net.sf.json 包
+json和java cnblogs.com/hitwtx/articles/2468633.html
+www.xuebuyuan.com/832452.html
+aar  -> ctrl+2,l  -> ctrl+e -> alt+shift+r  ->
+ctrl+o  ctrl+shift+r   shift+enter   ctrl+.  ctrl+1;
+用eclipse很容易打开接口的实现类，ctrl+T 会列出接口的实现类列表
+ctrl+Q  回到最后一次编辑的位置
+ctlr+shift+G  导航到调用它的地方
+Quick Assist: Assign to local ctrl+2;l  eg new Student   ctrl+2,l 自动补全
+ctrl+alt+H  一个类的方法到底被那些其他的类调用。
+
+

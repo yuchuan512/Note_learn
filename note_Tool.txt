@@ -1,20 +1,53 @@
-ï»¿sublimeæ’ä»¶
+sublime²å¼þ
 ** SublimeREPL
-å®‰è£…ä¹‹åŽï¼Œé…ç½® Settings-User,å¦‚ä¸‹ï¼Œæœ€åŽä¸€ä¸ªå‚æ•°å¡«ä¸Špythonçš„å®‰è£…è·¯å¾„ã€‚
+°²×°Ö®ºó£¬ÅäÖÃ Settings-User,ÈçÏÂ£¬×îºóÒ»¸ö²ÎÊýÌîÉÏpythonµÄ°²×°Â·¾¶¡£
 {
 "default_extend_env": {"PATH": "{PATH};C:\\Python27"}
 }
-æ·»åŠ  key Bindings-User,ç»‘å®šåˆ°F5å¿«æ·é”®æ‰§è¡Œè¿è¡Œæ“ä½œã€‚
-    {"keys":["f5"],"caption": "SublimeREPL: Python - RUN current file",
-        "command": "run_existing_window_command", "args":
-        {
-            "id": "repl_python_run",
-            "file": "config/Python/Main.sublime-menu"
-        }
-    }
-**AutoPep8 pythonè§„èŒƒåŒ–
-**DocBlockr docé£Žæ ¼ä»£ç æ³¨é‡Š
-**SublimeCodeIntel è‡ªåŠ¨è¡¥å…¨
-**SublimeLinter ä»£ç è¯­æ³•é”™è¯¯æç¤º
-**SublimeAStyleFormatter C/C++/Java è¯­æ³•é£Žæ ¼
-**All Autocomplete è‡ªåŠ¨æ‰©å±•åˆ°å½“å‰æ‰€æœ‰æ‰“å¼€çš„æ–‡ä»¶
+Ìí¼Ó key Bindings-User,°ó¶¨µ½F5¿ì½Ý¼üÖ´ÐÐÔËÐÐ²Ù×÷¡£
+{"keys":["f5"],"caption": "SublimeREPL: Python - RUN current file",
+"command": "run_existing_window_command", "args":
+{
+"id": "repl_python_run",
+"file": "config/Python/Main.sublime-menu"
+}
+}
+**AutoPep8 python¹æ·¶»¯
+**DocBlockr doc·ç¸ñ´úÂë×¢ÊÍ
+**SublimeCodeIntel ×Ô¶¯²¹È«
+**SublimeLinter ´úÂëÓï·¨´íÎóÌáÊ¾
+**SublimeAStyleFormatter C/C++/Java Óï·¨·ç¸ñ
+**All Autocomplete ×Ô¶¯À©Õ¹µ½µ±Ç°ËùÓÐ´ò¿ªµÄÎÄ¼þ
+**BracketHighlight ¸ßÁÁÏÔÊ¾Æ¥ÅäÀ¨ºÅ¡¢±êµãµÈ·ûºÅ
+**sublime+graphviz+PlantUML for sublime²å¼þ£¬±àÂëÉú³ÉÁ÷³ÌÍ¼µÈ ->{ "keys": ["alt+d"], "command": "display_diagrams"}
+²Î¿¼ PlantUML_Language_Reference_Guide.pdf
+¿ì½Ý¼ü 
+ctrl+shift+P ¿ìËÙµ÷ÓÃÃüÁî£¬¸ü¸ÄÓï·¨
+ctrl+p  ÇÐ»»ÎÄ¼þ
+ctrl+r ä¯ÀÀÔ´´úÂëÖÐµÄËùÓÐ·½·¨
+F12 ×ªµ½¶¨Òå   Alt+ - ·µ»Øµ÷ÓÃÎ»ÖÃ 
+Quick Assist - Assign tolocal variable   -> ctrl+shift+I
+ctrl + d : Ñ¡ÖÐ¹â±êËùÕ¼µÄÎÄ±¾
+ÇÐ»»ÏîÄ¿£º ctrl + alt + p
+shift+F11  Free Mode  
+ctrl+`  show console
+Alt+d   show Graph
+ctrl+g  go to line number
+ctrl+[  Indent 
+ctrl+]  Unindent
+ctrl+shift+[  Fold 
+ctrl+shift+]  Unfold
+ctrl+k+j      Unfold All
+ctrl+f ->  F3    Find Next 
+ctrl+shift+U  Find In All Open Files (user-defined)
+ctrl+f ²éÕÒµ½Ö®ºó£¬alt+enter Ñ¡ÔñËùÓÐ£¬Í¬Ê±±à¼­
+That¡¯s it for now, we hope this little tip can be useful to enhance your workflow on writing codes. Happy Coding!
+Tools-> new Snippet  ÐÂ½¨ snippet£¬±ÈÈç java.sublime-snippet -> Î»ÖÃsublime3\Data\Packages\User\Snippet¡£
+SidebarEnhancements  ²à±ßÀ¸ÔöÇ¿¹¤¾ß 
+
+yum install sysstat  -> iostat -dmx 3
+
+Ctrl+D£ºÑ¡ÖÐµ±Ç°¹â±êËùÔÚÎ»ÖÃµÄµ¥´Ê¡£Á¬ÐøÊ¹ÓÃÊ±£¬½øÐÐ¶à¹â±êÑ¡Ôñ£¬Ñ¡ÖÐÏÂÒ»¸öÍ¬Ãûµ¥´Ê¡£
+Shift+Êó±êÓÒ¼ü£ºÏòÏÂÍÏ¶¯£¬²úÉú¶à¸ö¹â±ê¡£
+Alt+F3£ºÑ¡ÖÐÎÄµµÖÐËùÓÐµÄÍ¬Ãûµ¥´Ê¡£
+Ctrl+L£ºÑ¡Ôñµ±Ç°¹â±êËùÔÚÎ»ÖÃµÄÐÐ¡£Á¬ÐøÊ¹ÓÃÊ±£¬¼ÌÐøÑ¡ÖÐÏÂÒ»ÐÐ¡£
